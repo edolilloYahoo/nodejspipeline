@@ -12,7 +12,7 @@ node {
      }
    }
    stage('Docker Build & Push') {
-     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_id') {
+     dockerjenkins.withRegistry('https://registry.hub.docker.com', 'docker_hub_id') {
       def nuestraapp = docker.build("edolillo/nodejsapp:${gitcommit}", ".")
       nuestraapp.push()
      }
